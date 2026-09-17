@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devsu.Usuarios.API", "Devsu.Usuarios.API\Devsu.Usuarios.API.csproj", "{0A527E1A-F572-4572-8F35-A62347AF5DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devsu.Financiero.API", "Devsu.Financiero.API\Devsu.Financiero.API.csproj", "{3979F385-EA0E-4F35-9444-90CE9B2A8110}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F3D03D2E-DDEA-49A9-BCFA-04091E877482}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A527E1A-F572-4572-8F35-A62347AF5DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A527E1A-F572-4572-8F35-A62347AF5DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A527E1A-F572-4572-8F35-A62347AF5DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A527E1A-F572-4572-8F35-A62347AF5DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3979F385-EA0E-4F35-9444-90CE9B2A8110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3979F385-EA0E-4F35-9444-90CE9B2A8110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3979F385-EA0E-4F35-9444-90CE9B2A8110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3979F385-EA0E-4F35-9444-90CE9B2A8110}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A527E1A-F572-4572-8F35-A62347AF5DD8} = {F3D03D2E-DDEA-49A9-BCFA-04091E877482}
+		{3979F385-EA0E-4F35-9444-90CE9B2A8110} = {F3D03D2E-DDEA-49A9-BCFA-04091E877482}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3647CA8B-922F-4037-AE30-8F0F34182044}
+	EndGlobalSection
+EndGlobal
