@@ -19,18 +19,20 @@ builder.Services.AddDbContext<FinancieroDbContext>(options =>
 
 builder.Services.AddMassTransit(x =>
 {
-    // Registramos el consumidor en este microservicio
     x.AddConsumer<ClienteCreadoConsumer>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", "/", h =>
+        cfg.Host(builder.Configuration["RabbitMq:Host"], "/", h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username(builder.Configuration["RabbitMq:Username"]);
+            h.Password(builder.Configuration["RabbitMq:Password"]);
         });
 
         cfg.ConfigureEndpoints(context);
+
+        // Si la base de datos falla, con la masstransint reintentará 3 veces
+        cfg.UseMessageRetry(r => r.Interval(3, TimeSpan.FromSeconds(5)));
     });
 });
 

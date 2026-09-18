@@ -24,13 +24,15 @@ builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq((context, cfg) =>
     {
-        // En un entorno real esto viene de IConfiguration, pero para probar localmente:
-        cfg.Host("localhost", "/", h =>
-        {
-            h.Username("guest");
-            h.Password("guest");
-        });
+        var host = builder.Configuration["RabbitMq:Host"];
+        var user = builder.Configuration["RabbitMq:Username"];
+        var pass = builder.Configuration["RabbitMq:Password"];
 
+        cfg.Host(host, "/", h =>
+        {
+            h.Username(user);
+            h.Password(pass);
+        });
         cfg.ConfigureEndpoints(context);
     });
 });

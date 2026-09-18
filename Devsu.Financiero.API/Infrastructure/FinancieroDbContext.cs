@@ -23,6 +23,8 @@ namespace Devsu.Financiero.API.Infrastructure
                 b.HasKey(x => x.Id);
                 b.HasIndex(x => x.NumeroCuenta).IsUnique();
                 b.Property(x => x.SaldoInicial).HasPrecision(18, 4);
+                b.Property(x => x.TipoCuenta).HasMaxLength(20);
+
             });
 
             modelBuilder.Entity<Movimiento>(b =>
@@ -30,6 +32,7 @@ namespace Devsu.Financiero.API.Infrastructure
                 b.HasKey(x => x.Id);
                 b.Property(x => x.Valor).HasPrecision(18, 4);
                 b.Property(x => x.Saldo).HasPrecision(18, 4);
+                b.Property(x => x.TipoMovimiento).HasMaxLength(20);
             });
         }
     }
