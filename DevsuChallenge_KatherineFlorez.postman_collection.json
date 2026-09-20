@@ -512,23 +512,23 @@
   "variable": [
     {
       "key": "url_usuarios",
-      "value": ""
+      "value": "http://localhost:5001"
     },
     {
       "key": "url_financiero",
-      "value": ""
+      "value": "http://localhost:5002"
     },
     {
       "key": "clienteId",
-      "value": ""
+      "value": "76437d10-dac0-4ca4-bdae-3fbf5c59335d"
     },
     {
       "key": "numeroCuenta",
-      "value": ""
+      "value": "165656444"
     },
     {
       "key": "movimientoId",
-      "value": ""
+      "value": "186170b0-2ff4-45bd-a342-f458582e0971"
     }
   ]
 }
