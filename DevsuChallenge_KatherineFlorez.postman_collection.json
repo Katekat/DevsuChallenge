@@ -1,0 +1,534 @@
+{
+  "info": {
+    "_postman_id": "dd1fee9e-4ccf-4a4f-a75e-e7565e4dc2fe",
+    "name": "DevsuChallenge_KatherineFlorez",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15934587",
+    "_collection_link": "https://go.postman.co/collection/15934587-dd1fee9e-4ccf-4a4f-a75e-e7565e4dc2fe?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Registrar cliente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {\r",
+                  "    var response = pm.response.json();\r",
+                  "    \r",
+                  "   \r",
+                  "    var clienteId = response.clienteId; \r",
+                  "    \r",
+                  "    if (clienteId) {\r",
+                  "        pm.collectionVariables.set(\"clienteId\", clienteId);\r",
+                  "        console.log(\"ID de cliente  guardado: \" + clienteId);\r",
+                  "    } else {\r",
+                  "        console.error(\"El JSON de respuesta no expone una propiedad de ID válida.\");\r",
+                  "    }\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Katherine Florez\",\r\n  \"genero\": \"Femenino\",\r\n  \"edad\": 30,\r\n  \"identificacion\": \"2443791654\",\r\n  \"direccion\": \"crra  av.tereab\",\r\n  \"telefono\": \"04248897510\",\r\n  \"contrasena\": \"10345154\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url_usuarios}}/api/clientes",
+              "host": [
+                "{{url_usuarios}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener clientes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url_usuarios}}/api/clientes",
+              "host": [
+                "{{url_usuarios}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url_usuarios}}/api/clientes/{{clienteId}}",
+              "host": [
+                "{{url_usuarios}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{clienteId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"kate Modificado\",\r\n  \"genero\": \"femenino\",\r\n  \"edad\": 31,\r\n  \"direccion\": \"Av. Principal\",\r\n  \"telefono\": \"098254785\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url_usuarios}}/api/clientes/{{clienteId}}",
+              "host": [
+                "{{url_usuarios}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{clienteId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url_usuarios}}/api/clientes/4C6B2BBE-773E-494D-8ED4-809BB1E5972E",
+              "host": [
+                "{{url_usuarios}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "4C6B2BBE-773E-494D-8ED4-809BB1E5972E"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cuentas",
+      "item": [
+        {
+          "name": "CrearCuenta",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();\r",
+                  "\r",
+                  "\r",
+                  "if (pm.response.code === 200 || pm.response.code === 201) {\r",
+                  "    \r",
+                  "    pm.collectionVariables.set(\"numeroCuenta\", jsonData.numeroCuenta); \r",
+                  "    console.log(\"Número de cuenta capturado: \" + jsonData.numeroCuenta);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numeroCuenta\": \"165656444\",\r\n  \"tipoCuenta\": \"Corriente\",\r\n  \"saldoInicial\": 50000,\r\n  \"estado\": true,\r\n  \"clienteId\": \"76437d10-dac0-4ca4-bdae-3fbf5c59335d\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url_financiero}}/api/cuentas",
+              "host": [
+                "{{url_financiero}}"
+              ],
+              "path": [
+                "api",
+                "cuentas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ObtenerCuentaById",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url_financiero}}/api/cuentas/{{numeroCuenta}}",
+              "host": [
+                "{{url_financiero}}"
+              ],
+              "path": [
+                "api",
+                "cuentas",
+                "{{numeroCuenta}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Cuenta",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"estado\": true,\r\n  \"tipoCuenta\": \"Ahorros\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url_financiero}}/api/cuentas/{{numeroCuenta}}",
+              "host": [
+                "{{url_financiero}}"
+              ],
+              "path": [
+                "api",
+                "cuentas",
+                "{{numeroCuenta}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Movimientos",
+      "item": [
+        {
+          "name": "CrearMovimiento",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {\r",
+                  "    var response = pm.response.json();\r",
+                  "    \r",
+                  "    \r",
+                  "    var movimientoId = response.id; \r",
+                  "    \r",
+                  "    if (movimientoId) {\r",
+                  "        pm.collectionVariables.set(\"movimientoId\", movimientoId);\r",
+                  "        console.log(\"ID de movimiento guardado: \" + movimientoId);\r",
+                  "    } else {\r",
+                  "        console.error(\"El JSON no devolvió un ID de movimiento válido.\");\r",
+                  "    }\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numeroCuenta\": \"165656444\",\r\n  \"valor\": -2500 \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url_financiero}}/api/movimientos",
+              "host": [
+                "{{url_financiero}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ObtenerMovimientoById",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url_financiero}}/api/movimientos/{{movimientoId}}",
+              "host": [
+                "{{url_financiero}}"
+              ],
+              "path": [
+                "api",
+                "movimientos",
+                "{{movimientoId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reportes",
+      "item": [
+        {
+          "name": "EstadoCuenta",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url_financiero}}/api/reportes?fechaInicio=2026-09-01&fechaFin=2026-09-30&clienteId=76437d10-dac0-4ca4-bdae-3fbf5c59335d",
+              "host": [
+                "{{url_financiero}}"
+              ],
+              "path": [
+                "api",
+                "reportes"
+              ],
+              "query": [
+                {
+                  "key": "fechaInicio",
+                  "value": "2026-09-01"
+                },
+                {
+                  "key": "fechaFin",
+                  "value": "2026-09-30"
+                },
+                {
+                  "key": "clienteId",
+                  "value": "76437d10-dac0-4ca4-bdae-3fbf5c59335d"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "url_usuarios",
+      "value": ""
+    },
+    {
+      "key": "url_financiero",
+      "value": ""
+    },
+    {
+      "key": "clienteId",
+      "value": ""
+    },
+    {
+      "key": "numeroCuenta",
+      "value": ""
+    },
+    {
+      "key": "movimientoId",
+      "value": ""
+    }
+  ]
+}

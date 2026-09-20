@@ -43,7 +43,8 @@ Este proyecto descarta las estructuras monolíticas tradicionales y las capas ho
 * .NET SDK (en caso de querer compilar o ejecutar en local sin contenedores).
 
 ### Levantamiento del Entorno Completo
-Para levantar todo el ecosistema (SQL Server con persistencia de volumen, RabbitMQ y los microservicios) ejecutando las migraciones de forma automática al iniciar:
+Para levantar todo el ecosistema (SQL Server con persistencia de volumen, RabbitMQ y los microservicios) ejecutando las migraciones de forma automática al iniciar, ejecuta en la terminal dentro de la ruta donde se haya clonado el proyecto:
 
-en el bash ejecutar:
 docker-compose up -d --build
+
+Pruebas de API: Se incluye la colección DevsuChallenge_KatherineFlorez.postman_collection.json en la raíz del repositorio. Las variables de entorno están preconfiguradas a nivel de colección
