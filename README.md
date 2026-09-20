@@ -35,7 +35,10 @@ Este proyecto descarta las estructuras monolíticas tradicionales y las capas ho
 * **Contenedorización:** Docker & Docker Compose.
 
 ---
+### Notas sobre la Base de Datos
+Para cumplir estrictamente con los entregables solicitados, el archivo BaseDatos.sql en la raíz del proyecto contiene los scripts de creación y migración consolidados. Cabe destacar que, al ser una arquitectura de microservicios, el script crea y segrega físicamente dos bases de datos independientes (Usuarios y Financiero) utilizando el comando USE.
 
+---
 ## Guía de Ejecución y Despliegue
 
 ### Prerrequisitos
